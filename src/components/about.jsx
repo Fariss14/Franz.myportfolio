@@ -10,7 +10,7 @@ const About = () => {
         <div className="about-box">
           <h3 className="about-subtitle">What I do</h3>
           <p className="about-text">
-            I specialize in front-end development and graphic design, creating visually appealing and user-friendly digital experiences.
+            I specialize in front-end development & graphic design, creating visually appealing and user-friendly digital experiences.
           </p>
         </div>
 
@@ -18,7 +18,7 @@ const About = () => {
           <h3 className="about-subtitle">Skills</h3>
           <p className="about-skill"><strong>Graphic Design</strong></p>
           <p className="about-text">
-            Proficient in Photoshop, Canva, and other design tools for creating engaging visuals.
+            Proficient in Photoshop, Canva, & other design tools for creating engaging visuals.
           </p>
 
           <p className="about-skill"><strong>Web Design</strong></p>
