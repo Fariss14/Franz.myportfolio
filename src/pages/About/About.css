@@ -1,0 +1,149 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about-header {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center; 
+}
+
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-section h4 {
+  color: #586bbe;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+  text-align: center; 
+  margin: 0;
+}
+
+.about-section li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.about-section li:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* responsiveness */
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem;
+  }
+
+  .profile-photo {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .about-content {
+    padding: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    padding: 0 0.8rem;
+  }
+
+  .about-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-section ul {
+    text-align: center;
+    margin: 0;
+  }
+
+  .about-section li {
+    padding: 0.5rem 0;
+  }
+}
