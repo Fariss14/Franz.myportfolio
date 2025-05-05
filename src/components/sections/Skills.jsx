@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import { motion } from "framer-motion"
 import {
@@ -11,11 +13,8 @@ import {
   FaMicrosoft,
   FaPalette,
   FaJs,
-  FaPython,
-  FaDatabase,
-  FaFigma,
-  FaBootstrap,
   FaNodeJs,
+  FaFigma,
 } from "react-icons/fa"
 import { SiAdobe } from "react-icons/si"
 import CertificateModal from "../CertificateModal"
@@ -58,7 +57,7 @@ const Skills = () => {
 
   const achievements = [
     "Civil Service Passer - Professional Level (2023)",
-    "English Proficiency for Internation Competetiveness (EPIC) Finisher",
+    "English Proficiency for International Competitiveness (EPIC) Finisher",
     "Certification of Completion - IT Internship, WMSU - 2025",
     "TESDA Training for Web Development NC-I (Dec. 2021)",
     "TESDA Training for ICT NC-II (May, 2022)",
@@ -69,21 +68,19 @@ const Skills = () => {
       name: "Programming Foundations: Fundamentals",
       issueDate: "January 2023",
       hours: "4 hours",
-      pdfUrl: "/Programming-Foundations-Fundamentals.pdf",
+      pdfUrl: "/certificates/LinkedIn/Programming-Foundations-Fundamentals.pdf",
     },
     {
       name: "Microsoft Security Operations Analyst Associate SC-200 Cert Prep",
       issueDate: "February 2023",
       hours: "6 hours",
-      pdfUrl:
-        "/Microsoft-Security-Operations-Analyst-Associate-SC200-Cert-Prep-by-Microsoft-Press.pdf",
+      pdfUrl: "/certificates/LinkedIn/Microsoft-Security-Operations-Analyst-Associate-SC200-Cert-Prep.pdf",
     },
     {
       name: "Certified Information Systems Security Professional (CISSP) 2024 Cert Prep",
       issueDate: "March 2023",
       hours: "8 hours",
-      pdfUrl:
-        "/assets/certificates/LinkedIn/Certified-Information-Systems-Security-Professional-CISSP-2024-Cert-Prep.pdf",
+      pdfUrl: "/certificates/LinkedIn/CISSP-2024-Cert-Prep.pdf",
     },
     {
       name: "Empathy in UX Design",
@@ -137,19 +134,19 @@ const Skills = () => {
       name: "Introduction to IT Architecture",
       issueDate: "December 2023",
       hours: "6 hours",
-      pdfUrl: "/certificates/LinkedIn/Introduction-to-IT-Architecture-2020.pdf",
+      pdfUrl: "/certificates/LinkedIn/Introduction-to-IT-Architecture.pdf",
     },
     {
       name: "Program Management for IT Professionals",
       issueDate: "January 2024",
       hours: "5 hours",
-      pdfUrl: "/certificates/LinkedIn/Program-Management-for-IT-Professionals-2018.pdf",
+      pdfUrl: "/certificates/LinkedIn/Program-Management-for-IT-Professionals.pdf",
     },
     {
       name: "Succeeding as a First-Time Tech Manager",
       issueDate: "February 2024",
       hours: "4 hours",
-      pdfUrl: "/certificates/LinkedIn/Succeeding-as-a-FirstTime-Tech-Manager-2019.pdf",
+      pdfUrl: "/certificates/LinkedIn/Succeeding-as-a-FirstTime-Tech-Manager.pdf",
     },
     {
       name: "Cybersecurity Fundamentals",
@@ -167,7 +164,7 @@ const Skills = () => {
       name: "TLS for Beginners: Securing Network Communications",
       issueDate: "May 2024",
       hours: "3 hours",
-      pdfUrl: "/certificates/LinkedIn/TLS-for-Beginners-Securing-Network-Communications.pdf",
+      pdfUrl: "/certificates/LinkedIn/TLS-for-Beginners.pdf",
     },
     {
       name: "UX Foundations: Interaction Design",
@@ -203,37 +200,37 @@ const Skills = () => {
       name: "User Experience (UX) for Non-Designers",
       issueDate: "November 2024",
       hours: "3 hours",
-      pdfUrl: "/certificates/LinkedIn/User-Experience-UX-for-NonDesigners.pdf",
+      pdfUrl: "/certificates/LinkedIn/UX-for-NonDesigners.pdf",
     },
     {
       name: "Figma Essential Training: The Basics",
       issueDate: "December 2024",
       hours: "4 hours",
-      pdfUrl: "/certificates/LinkedIn/Figma-Essential-Training-The-Basics.pdf",
+      pdfUrl: "/certificates/LinkedIn/Figma-Essential-Training.pdf",
     },
     {
       name: "IT Security Foundations: Operating System Security",
       issueDate: "January 2025",
       hours: "5 hours",
-      pdfUrl: "/certificates/LinkedIn/IT-Security-Foundations-Operating-System-Security.pdf",
+      pdfUrl: "/certificates/LinkedIn/IT-Security-OS-Security.pdf",
     },
     {
       name: "Computer Science Principles: Digital Information",
       issueDate: "February 2025",
       hours: "3 hours",
-      pdfUrl: "/certificates/LinkedIn/Computer-Science-Principles-Digital-Information.pdf",
+      pdfUrl: "/certificates/LinkedIn/CS-Principles-Digital-Information.pdf",
     },
     {
       name: "Computer Science Principles: The Internet",
       issueDate: "March 2025",
       hours: "4 hours",
-      pdfUrl: "/certificates/LinkedIn/Computer-Science-Principles-The-Internet.pdf",
+      pdfUrl: "/certificates/LinkedIn/CS-Principles-The-Internet.pdf",
     },
     {
       name: "Cybersecurity Foundations: Security Architecture",
       issueDate: "April 2025",
       hours: "5 hours",
-      pdfUrl: "/certificates/LinkedIn/Cybersecurity-Foundations-Security-Architecture.pdf",
+      pdfUrl: "/certificates/LinkedIn/Cybersecurity-Security-Architecture.pdf",
     },
     {
       name: "Security Frameworks Fundamentals",
@@ -251,7 +248,7 @@ const Skills = () => {
       name: "IT Security Foundations: Core Concepts",
       issueDate: "July 2025",
       hours: "5 hours",
-      pdfUrl: "/certificates/LinkedIn/IT-Security-Foundations-Core-Concepts.pdf",
+      pdfUrl: "/certificates/LinkedIn/IT-Security-Core-Concepts.pdf",
     },
   ]
 
@@ -272,67 +269,67 @@ const Skills = () => {
       name: "GitHub Copilot Fundamentals",
       issueDate: "March 2023",
       hours: "15 hours",
-      pdfUrl: "/certificates/Simplilearn/github-copilot-fundamentals.pdf",
+      pdfUrl: "/certificates/Simplilearn/GitHub-Copilot-Fundamentals.pdf",
     },
     {
       name: "Introduction to Cloud Security",
       issueDate: "April 2023",
       hours: "30 hours",
-      pdfUrl: "/certificates/Simplilearn/intro-to-cloud-security.pdf",
+      pdfUrl: "/certificates/Simplilearn/Cloud-Security-Introduction.pdf",
     },
     {
       name: "Introduction to DevOps",
       issueDate: "May 2023",
       hours: "25 hours",
-      pdfUrl: "/certificates/Simplilearn/intro-to-devops.pdf",
+      pdfUrl: "/certificates/Simplilearn/DevOps-Introduction.pdf",
     },
     {
       name: "Introduction to CBAP",
       issueDate: "June 2023",
       hours: "20 hours",
-      pdfUrl: "/certificates/Simplilearn/introduction-to-CBAP.pdf",
+      pdfUrl: "/certificates/Simplilearn/CBAP-Introduction.pdf",
     },
     {
       name: "Introduction to Data Visualization",
       issueDate: "July 2023",
       hours: "15 hours",
-      pdfUrl: "/certificates/Simplilearn/Introduction-to-Data-Visualization.pdf",
+      pdfUrl: "/certificates/Simplilearn/Data-Visualization-Introduction.pdf",
     },
     {
       name: "Introduction to Frontend Development",
       issueDate: "August 2023",
       hours: "30 hours",
-      pdfUrl: "/certificates/Simplilearn/introduction-to-frontend-development.pdf",
+      pdfUrl: "/certificates/Simplilearn/Frontend-Development-Introduction.pdf",
     },
     {
       name: "Introduction to Paid Media Marketing",
       issueDate: "September 2023",
       hours: "20 hours",
-      pdfUrl: "/certificates/Simplilearn/introduction-to-paid-media-marketing.pdf",
+      pdfUrl: "/certificates/Simplilearn/Paid-Media-Marketing-Introduction.pdf",
     },
     {
       name: "Introduction to PRINCE2",
       issueDate: "October 2023",
       hours: "25 hours",
-      pdfUrl: "/certificates/Simplilearn/introduction-to-prince.pdf",
+      pdfUrl: "/certificates/Simplilearn/PRINCE2-Introduction.pdf",
     },
     {
       name: "Project Management 101",
       issueDate: "November 2023",
       hours: "30 hours",
-      pdfUrl: "/certificates/Simplilearn/project-management-101.pdf",
+      pdfUrl: "/certificates/Simplilearn/Project-Management-101.pdf",
     },
     {
       name: "Python for Beginners",
       issueDate: "December 2023",
       hours: "25 hours",
-      pdfUrl: "/certificates/Simplilearn/python-for-beginners.pdf",
+      pdfUrl: "/certificates/Simplilearn/Python-Beginners.pdf",
     },
     {
       name: "ReactJS for Beginners",
       issueDate: "January 2024",
       hours: "30 hours",
-      pdfUrl: "/certificates/Simplilearn/reactjs-for-beginners.pdf",
+      pdfUrl: "/certificates/Simplilearn/ReactJS-Beginners.pdf",
     },
   ]
 
@@ -391,6 +388,27 @@ const Skills = () => {
             </motion.li>
           ))}
         </ul>
+
+        <h3 className="certificates-heading">Certificates</h3>
+        <div className="certificate-buttons">
+          <motion.button
+            className="certificate-button linkedin-button"
+            onClick={openLinkedInCertificates}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaLinkedin className="button-icon" /> LinkedIn Certificates ({linkedInCertificates.length})
+          </motion.button>
+
+          <motion.button
+            className="certificate-button simplilearn-button"
+            onClick={openSimplilearnCertificates}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaGraduationCap className="button-icon" /> Simplilearn Certificates ({simplilearnCertificates.length})
+          </motion.button>
+        </div>
       </motion.div>
 
       {showModal && <CertificateModal source={modalSource} certificates={certificates} onClose={closeModal} />}
