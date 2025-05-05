@@ -69,7 +69,7 @@ const Skills = () => {
       name: "Programming Foundations: Fundamentals",
       issueDate: "January 2023",
       hours: "4 hours",
-      pdfUrl: "/certificates/LinkedIn/Programming-Foundations-Fundamentals.pdf",
+      pdfUrl: "/Programming-Foundations-Fundamentals.pdf",
     },
     {
       name: "Microsoft Security Operations Analyst Associate SC-200 Cert Prep",
