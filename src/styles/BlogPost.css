@@ -1,0 +1,422 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { FaArrowLeft, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa"
+
+const BlogPost = () => {
+  const { day } = useParams()
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  // Hide header and footer when image modal is open
+  useEffect(() => {
+    if (selectedImage) {
+      const navbar = document.querySelector('.navbar-container');
+      const footer = document.querySelector('.footer-container');
+      
+      if (navbar) navbar.style.display = 'none';
+      if (footer) footer.style.display = 'none';
+      
+      return () => {
+        if (navbar) navbar.style.display = '';
+        if (footer) footer.style.display = '';
+      };
+    }
+  }, [selectedImage]);
+
+  const blogPosts = {
+    "day-one": {
+      title: "Day 1: Tracing Roots: A Journey Through the Historic Heart of Manila",
+      date: "Monday, April 7, 2025",
+      location: "Manila, Philippines",
+      itinerary: "Intramuros, Fort Santiago, Rizal Park, Manila Cathedral, San Agustin Church, CCP, Mall of Asia",
+      content: `
+        <p>Our journey began in the very heart of Manila, where the echoes of the past still resonate through centuries-old walls and storied streets. With the sun shining down on us, we stepped into a world where colonial and Filipino heritage collide. From the fortified city of Intramuros to the symbolic grounds of Rizal Park, and finally to the vibrant leisure atmosphere of the Mall of Asia, this day marked an enriching start to our educational-cultural trip. It was a day of learning, reflection, and pride—setting the tone for the days to come.</p>
+      `,
+      reflection:
+        "Today was more than just a tour—it was a journey into our identity as Filipinos. Each location told a different story of who we are: Intramuros with its colonial legacy, Fort Santiago with its heroic struggles, Luneta with its national reverence, and MOA with its modern comforts. I walked away with a deeper appreciation for our history and a stronger connection to our culture. Seeing the places where our national heroes lived, walked, and gave their lives was emotional and humbling. It reminded me that our freedom was not given freely—it was earned through blood and sacrifice. Ending the day at the mall allowed us to relax, yes, but it also gave us time to process what we had learned. It was a perfect blend of education and leisure, and a day I'll never forget.",
+      trivia:
+        "Intramuros was built in 1571 and survived numerous wars and natural disasters. The walls are up to 22 feet thick in some places!",
+      image: "/day-one.png",
+      itineraryItems: [
+        {
+          name: "Departure",
+          image: "/day-1-images/Departure.png",
+          description:
+            "Our journey truly began under the cloak of night as we gathered at Zamboanga International Airport, excitement mingling with the soft glow of terminal lights. After checking in and boarding around 7:15 PM, we settled into our seats on the 7:45 PM flight bound for Manila. As the engines roared to life and the plane taxied away from the gate, the city lights of Zamboanga faded beneath us, giving way to the dark expanse of the Sulu Sea illuminated only by distant flashes of fishing boats and the faint outlines of islands. Cruising at altitude, we gazed out the window at a sky sprinkled with stars, the gentle hum of the cabin lulling us into a reflective mood. Many of us reviewed our maps and itineraries by the soft overhead lights, anticipation growing for the historical treasures that awaited in Manila. By the time we began our descent, Manila's sprawling cityscape shimmered beneath us, promising the first chapter of an unforgettable adventure.",
+          trivia: "Zamboanga International Airport handles over 1 million passengers annually and connects to major Philippine cities and international destinations like Malaysia."
+        },
+        {
+          name: "Arrival in Manila",
+          image: "/day-1-images/Arrival.png",
+          description:
+            "We touched down at Ninoy Aquino International Airport, greeted by the warm Manila air and the hustle and bustle of the city. Despite the rush of traffic and the noise typical of any major city, there was a palpable sense of purpose in the air. Manila, with its complex blend of old and new, felt like a living testament to the country's evolution. As we made our way from the airport to our first destination, there was a sense of pride in being in the place that housed so much of the country's history, from the Spanish colonial period to the fight for independence. We were eager to explore, to walk the same streets where our heroes once fought, and to experience Manila in all its historic glory.",
+          trivia: "Ninoy Aquino International Airport is named after Benigno 'Ninoy' Aquino Jr., whose assassination in 1983 at this very airport became a catalyst for the People Power Revolution."
+        },
+        {
+          name: "Intramuros",
+          image: "/day-1-images/Intramuros.png",
+          description:
+            "We began our historical immersion inside the walled city of Intramuros, often referred to as the \"Old Manila.\" Walking along its cobblestone streets and towering stone walls felt like stepping into a time capsule that transported us back to the Spanish colonial period. The city's architecture stands as a stunning testament to 300 years of Spanish influence, with preserved churches, schools, and administrative buildings dotting the area. Our group marveled at the sight of the traditional kalesa—a horse-drawn carriage that still weaves through the narrow roads, adding an authentic charm to the environment. We passed by the Manila Cathedral and San Agustin Church, both steeped in history and architectural grandeur. As we strolled through the quiet corners and lively plazas, we sensed the deep cultural layers that define Filipino identity, shaped by colonization and resilience. Intramuros wasn't just a visual delight—it was a vivid reminder of our rich, complex heritage.",
+          trivia: "The name 'Intramuros' literally means 'within the walls' in Latin. During the Spanish colonial period, it was considered Manila itself, while areas outside the walls were referred to as 'extramuros' or 'outside the walls'."
+        },
+        {
+          name: "Fort Santiago",
+          image: "/day-1-images/FortSantiago.png",
+          description:
+            "Tucked within Intramuros is Fort Santiago, one of the most emotionally stirring sites of the day. This citadel served as a military base and prison during Spanish rule, and its walls have witnessed stories of pain, heroism, and sacrifice. Upon entering, we were greeted by the arched gateway marked with a Spanish coat of arms, hinting at its colonial origins. Our guide, Kuya Enan, narrated each section with passion and detail, painting vivid pictures of how Filipino revolutionaries, especially Dr. Jose Rizal, were imprisoned here. We walked along the Rizal Last Walk path, retracing the final steps Rizal took before his execution in 1896. Inside the dungeon, the dim lighting and narrow cells evoked a haunting atmosphere that made the suffering of prisoners more tangible. Despite parts of the fort being in ruins, its preservation speaks volumes. The place commands silence and respect, and standing there, we could almost hear the whispers of the past echoing through the thick stone walls.",
+          trivia: "The bronze footprints embedded in the ground at Fort Santiago trace the actual last steps of Jose Rizal as he walked from his cell to the execution site at Bagumbayan (now Rizal Park)."
+        },
+        {
+          name: "Rizal Park",
+          image: "/day-1-images/RizalPark.png",
+          description:
+          "Braving the midday heat, we made our way to Rizal Park—more popularly known as Luneta—one of the most iconic public spaces in the Philippines. As we neared the Rizal Monument, the air felt heavier with historical gravity. Kuya Enan once again captivated us with stories about the park's evolution—from being called Bagumbayan, a site of public executions during the Spanish era, to becoming a national symbol of Filipino pride and independence. Standing before the monument, with the statue of Rizal facing the Manila Bay, was deeply moving. We paused to reflect on the sacrifices that secured our freedom. The sprawling grounds, neatly kept gardens, and national flags fluttering in the breeze added to the solemn yet proud atmosphere. Despite the sun beating down, the energy of the place made us linger longer than expected, taking photos and quietly appreciating the beauty and meaning behind this national shrine.",
+          trivia: "The Rizal Monument contains the remains of Jose Rizal, and the exact spot where he was executed is marked about 100 meters away from the monument. The monument itself faces the exact direction of the rising sun."
+        },
+        {
+          name: "Mall of Asia",
+          image: "/day-1-images/MOA.png",
+          description:
+            "After a full day of exploration and reflection, we headed to the Mall of Asia (MOA), a refreshing change of pace that still carried cultural significance in its own right. Known as one of the largest malls in Asia, MOA greeted us with its modern architecture, wide open spaces, and vibrant energy. It was the perfect place to unwind and absorb everything we had experienced earlier. We roamed through rows of shops, from local brands to international labels, and indulged in food from various restaurants and food stalls. Some of us bought souvenirs—local snacks, shirts, trinkets—while others simply sat and enjoyed the seaside view from the open-air section of the mall. The experience showed us another facet of Filipino life: the colorful, modern-day culture that thrives alongside the deeply historic. MOA reminded us that the Philippines is not only a land of rich history but also one of progress, creativity, and relaxation.",
+          trivia: "SM Mall of Asia was the largest mall in the Philippines when it opened in 2006 and features one of the largest IMAX theaters in the world. The mall's globe centerpiece is 30 meters in diameter and is illuminated by over 2,000 LED lights at night."
+        },
+      ],
+    },
+    "day-two": {
+      title: "Day 2: Secured and Systematic: Exploring Subic's Technological Edge",
+      date: "Tuesday, April 8, 2025",
+      location: "Subic Bay, Olongapo, Philippines",
+      itinerary:
+        "SBMA Law Enforcement Department - Communication Branch, SBMA Seaport Department (Vessel Traffic Management System)",
+      content: `
+        <p>Today, we left the bustling city of Manila and headed to Subic Bay, a place renowned for its strategic importance and impressive technological advancements. Our day was filled with fascinating insights into how modern systems and technology are utilized to maintain security, safety, and order. From high-tech law enforcement systems to maritime traffic control, Subic showcased its commitment to innovation and efficiency. The experience left us with a newfound appreciation for how technology can shape communities and provide security in a fast-paced world.</p>
+      `,
+      reflection:
+        "Subic Bay left a lasting impression on me with its seamless integration of technology into everyday life. From law enforcement to maritime safety, it was clear that technology plays a crucial role in maintaining order and efficiency. I was particularly amazed by how organized the entire system felt—everything ran like clockwork. What's even more inspiring is how the residents and workers of Subic seem to embrace this high-tech environment, making it a model of modern living. If I were to imagine a place where technology and community coexist so smoothly, Subic would be it. It's a place I could easily see myself living in, with its combination of efficiency, safety, and innovation.",
+      trivia:
+        "Subic Bay was once the largest US Naval facility in Asia before being converted to a Freeport Zone in 1992 after the eruption of Mount Pinatubo.",
+      image: "/day-two.png",
+      itineraryItems: [
+        {
+          name: "SBMA Law Enforcement Department",
+          image: "/day-2-images/SBMA-Law.png",
+          description:
+            "Our first stop was the Subic Bay Metropolitan Authority (SBMA) Law Enforcement Department, where we were given an insider's look at how this part of the Philippines handles law enforcement and public safety. Upon entering the headquarters, we were immediately struck by how organized and systematic everything appeared. We met an officer who walked us through their advanced communication systems, which use cutting-edge CCTV surveillance and real-time monitoring to cover every inch of Subic. It was awe-inspiring to see how the entire area, from the streets to the harbor, is being constantly watched, ensuring public safety without disruption. The officer, full of enthusiasm, even cracked a few jokes, such as when he said, \"Pulis ngani!\" while explaining that they could review footage over and over to catch any suspicious activity. The combination of high-tech gadgets, swift communication, and the team's commitment to order left us in awe of how well-run Subic's law enforcement is. Their system feels like it's from a futuristic city, and it's something I've rarely seen on this scale before. It was clear that the safety of residents and visitors was their top priority, and technology played a pivotal role in achieving this goal",
+          trivia: "The SBMA Law Enforcement Department employs a unique 'community-first' policing model that was adapted from both American and Filipino security practices, creating one of the safest economic zones in Southeast Asia."
+        },
+        {
+          name: "SBMA Seaport Department",
+          image: "/day-2-images/SBMA-Seaport.png",
+          description:
+            "Next, we visited the Vessel Traffic Management System (VTMS) office, which manages maritime traffic and safety in Subic Bay. It was a fascinating glimpse into the world of maritime operations and the complex technology that supports them. The control room, equipped with state-of-the-art radar systems and Automatic Identification Systems (AIS), looked more like a high-tech command center from a sci-fi movie than something you'd expect at a seaport. We were shown how the systems track and monitor every vessel entering and leaving Subic Bay, ensuring safe navigation through the busy harbor. What stood out the most was how real-time data is used to prevent accidents and efficiently manage port operations. The view from the VTMS office overlooking the calm waters of Subic Bay was stunning, with ships passing by in perfect harmony with the system that orchestrates their movements. The combination of cutting-edge technology, human oversight, and a commitment to safety made me realize just how vital these systems are to global trade and local security.",
+          trivia: "The VTMS at Subic Bay can track vessels up to 40 nautical miles away and processes data from over 200 ships daily, making it one of the most advanced maritime traffic systems in Southeast Asia."
+        },
+        {
+          name: "Subic Bay Exhibition & Convention Center",
+          image: "/day-2-images/SUBECC.png",
+          description:
+            "Our second day took us to the Subic Bay Energy Conservation Center (SUBECC), a place dedicated to the promotion of sustainable energy and environmental awareness. Walking through the facility, we were surrounded by stunning paintings and artworks that depicted the beauty of Subic Bay's natural landscape. Each painting told a story of the region's efforts to balance development with environmental preservation. The history of SUBECC unfolded through the artwork, detailing the establishment of the center's mission to conserve energy and promote eco-friendly practices. We learned about the innovative ways that Subic Bay, once a U.S. military base, has transformed into a model for eco-conscious development, and it was inspiring to see how the community was embracing green technologies to ensure a sustainable future. The visit provided both an educational and reflective experience, as we marveled at the intersection of art, history, and environmental conservation.",
+          trivia: "SUBECC was established in 2009 and has helped reduce Subic Bay Freeport Zone's energy consumption by 30% through various conservation initiatives and educational programs."
+        },
+        {
+          name: "Subic Mall",
+          image: "/day-2-images/SubicMall.png",
+          description:
+            "After an enriching visit to the SBMA Seaport, we headed to the Royal Mall in Subic Bay for a much-needed break. The modern shopping mall, with its clean and spacious layout, offered a delightful contrast to the earlier environmental focus of our day. We strolled through the mall's wide corridors, taking in the mix of local and international shops. The food court was buzzing with activity, offering everything from familiar fast food to local delicacies. We indulged in some delicious snacks, refueling with fresh fruit juices, and enjoying the relaxed vibe of Subic Bay. It was the perfect spot to recharge and reflect on the day's learnings before we continued our journey. The contrast between the environmental awareness of SUBECC and the vibrant energy of the mall highlighted Subic's unique ability to blend modernity with sustainability.",
+          trivia: "Subic's Royal Mall was built on what was once a U.S. Navy recreation facility, and some of the original structural elements were preserved and incorporated into the mall's unique architecture."
+        },
+      ],
+    },
+    "day-three": {
+      title: "Day 3: Legacy and Innovation: A Tribute to Philippine History and Evolution",
+      date: "Wednesday, April 9, 2025",
+      location: "Quezon City, Philippines",
+      itinerary: "Museo ni Manuel L. Quezon, National Museum of Natural History",
+      content: `
+        <p>Today's journey was a deep dive into the rich history, leadership, and scientific progress of the Philippines. From the legacy of one of our most revered presidents to the marvels of biodiversity housed in a world-class museum, the day provided a holistic view of how the Philippines has evolved and the individuals who have shaped its path. The mix of history, culture, and scientific discovery made for a truly enriching day.</p>
+  
+      `,
+      reflection:
+        "Today was a deeply reflective and thought-provoking day. The museums we visited gave us a better understanding of the country's leadership, history, and natural resources. President Quezon's museum opened our eyes to the challenges of leadership during tumultuous times, while the Presidential Car Museum showed how power and prestige have evolved over the years. The National Museum of Natural History, on the other hand, reminded us of the country's rich biodiversity and the need for environmental stewardship. By the end of the day, we felt not just more informed but more connected to the Philippines, appreciating its past, present, and the path it continues to carve toward the future.",
+      trivia:
+        "The Tree of Life at the National Museum of Natural History is actually a DNA helix-inspired elevator that connects all six floors of the building!",
+      image: "/day-three.png",
+      itineraryItems: [
+        {
+          name: "Museo ni Manuel L. Quezon",
+          image: "/day-3-images/Museo-Manuel.png",
+          description:
+            "We began the day at Museo ni Manuel L. Quezon, nestled within the heart of Quezon City. The museum is a tribute to President Quezon, one of the most prominent figures in Philippine history, who served as the country's first president under the Commonwealth. As we walked through the museum, we found ourselves immersed in a slice of history, marveling at the personal belongings of the late president, including letters, photographs, and even his original desk. It felt almost surreal to be so close to the man who played a pivotal role in the fight for Philippine independence and in the establishment of the country's identity. One of the most moving parts of the museum was the mausoleum where President Quezon's remains are laid to rest. The solemnity of the space and the reverence with which he is remembered was palpable. It's not every day you stand in front of such an important figure, and walking through the museum gave us a deeper understanding of his leadership and the political landscape of his time.",
+          trivia: "Manuel L. Quezon was a skilled poker player who often used card games as a way to build relationships with American officials during the Commonwealth period, helping him negotiate for Philippine independence."
+        },
+        {
+          name: "Presidential Car Museum",
+          image: "/day-3-images/Car.png",
+          description:
+            "Our next stop was the Presidential Car Museum, which displayed a fascinating collection of vehicles used by past Philippine presidents. Each car in the museum tells its own story, offering a glimpse into the evolving style and technological advancements in the Philippines over the decades. The museum featured everything from the sleek, black limousines used by early presidents to more modern armored cars, each a symbol of the prestige and security required for the country's highest office. Walking around the museum, we were struck by the elegance of the older models, some of which looked like they belonged in a classic film, with chrome details and plush interiors. These vintage cars weren't just vehicles—they were symbols of the country's leadership and its journey toward modernity. The contrast between the older, more ornate vehicles and the modern armored ones offered a unique perspective on how much the country has progressed while maintaining the dignity of its leaders.",
+          trivia: "The Presidential Car Museum includes the bullet-riddled 1937 Chrysler Airflow that President Quezon was riding in when he survived an assassination attempt in 1939, with the original bullet holes still visible in the bodywork."
+        },
+        {
+          name: "National Museum of Natural History",
+          image: "/day-3-images/National-Museum.png",
+          description:
+            "After immersing ourselves in the world of politics and history, we made our way to the National Museum of Natural History, a stunning architectural marvel that houses the Philippines' most significant natural treasures. As we entered the museum, we were immediately struck by the sight of the iconic DNA Tree elevator—a symbol of the country's commitment to understanding and preserving its rich biodiversity. The exhibits that followed took us on a journey through the archipelago's diverse ecosystems, from its vibrant forests to its rich marine environments. The museum's collection was as breathtaking as it was educational, with dioramas showcasing the country's incredible wildlife, from the majestic Philippine eagle to the rare and elusive tarsier. What made the experience truly unforgettable were the interactive exhibits that allowed us to engage with the material in a fun, hands-on way. By the time we reached the top floor, it felt like we had just scratched the surface of the country's vast natural heritage. The museum not only highlighted the Philippines' biological richness but also emphasized the importance of conservation and the need to protect these wonders for future generations",
+          trivia: "The National Museum of Natural History building was originally constructed in 1940 as the Agriculture and Commerce Building and survived World War II bombings. It took over 75 years before it was finally converted into the natural history museum we see today."
+        },
+      ],
+    },
+    "day-four": {
+      title: "Day 4: From Currency to Current: Inside the Halls of Power and Progress",
+      date: "Thursday, April 10, 2025",
+      location: "Makati, Philippines",
+      itinerary: "Bangko Sentral ng Pilipinas, Hytec Power Inc., Trinoma Mall",
+      content: `
+        <p>Today, we explored two of the most vital institutions in the Philippines: the Bangko Sentral ng Pilipinas (BSP), where the country's money is produced, and Hytec Power Inc., a company at the forefront of electrical systems and training for future engineers. Both locations showcased the intricate systems that fuel the country's progress, offering us a glimpse into the behind-the-scenes work that keeps the economy and technological infrastructure running smoothly.</p>
+    
+      `,
+      reflection:
+        "Today was an eye-opening exploration of the systems that drive the country's economy and technological landscape. Visiting BSP gave us a deeper understanding of the complexity of money production, while Hytec Power Inc. showed us the cutting-edge technology that is shaping the future of energy. Both locations highlighted the importance of innovation, precision, and education in the country's growth. After a long day of learning, Trinoma Mall was a refreshing way to wind down, offering a glimpse into the vibrant, modern life that contrasts with the more traditional aspects of our journey.",
+      trivia:
+        "Philippine banknotes contain up to 20 different security features, many of which are only visible under special light or magnification!",
+      image: "/day-four.png",
+      itineraryItems: [
+        {
+          name: "Bangko Sentral ng Pilipinas",
+          image: "/day-4-images/BSP.png",
+          description:
+            "Our day began with a visit to the Bangko Sentral ng Pilipinas, the central bank of the Philippines, a place that's usually shrouded in secrecy. As soon as we entered, we were subject to strict security measures—no phones, no electronic devices, just us and the fascinating world of currency production. We were led through the building's inner workings, learning about the meticulous processes that go into producing the country's paper money. The tour allowed us to witness the entire journey of a banknote—from design and printing to cutting and packaging. It was incredible to learn how every detail, from the intricate designs to the security features, is carefully crafted to prevent counterfeiting. The sheer scale of the operation was mind-blowing, and the entire building smelled like fresh paper and ink, a scent that seemed to signify the very essence of money. While we couldn't visit the coin production area, we gained a deep respect for the people behind the country's currency, understanding how crucial their work is to maintaining economic stability. By the end of the tour, we walked away with a renewed sense of appreciation for something as simple, yet as complex, as the money in our pockets.",
+          trivia: "The BSP's Security Plant Complex in Quezon City, where Philippine banknotes are printed, uses special cotton-based paper imported from Europe that contains no wood pulp, giving Philippine currency its distinctive feel and durability."
+        },
+        {
+          name: "Hytec Power Inc.",
+          image: "/day-4-images/Hytec.png",
+          description:
+            "Next, we visited Hytec Power Inc., a cutting-edge company specializing in electrical systems and training simulations. As soon as we walked through the doors, we were immersed in a world of high-tech equipment and futuristic training modules designed to prepare engineers and technicians for the rapidly evolving power industry. The company's facilities featured real electrical systems and state-of-the-art simulators, allowing trainees to gain hands-on experience without the risks associated with real-world installations. We were able to try out some of the equipment ourselves, getting a firsthand look at the kind of technology that will shape the future of energy. The advanced systems on display were a testament to the country's push for innovation and sustainable energy solutions. As we toured the facility, it became clear that Hytec was not just a company but a hub of education and progress, providing the tools and training needed to tackle the challenges of the modern power grid. It was inspiring to see the future of energy management and electrical systems in action, and it made us realize just how much technological expertise is required to keep the country running efficiently.",
+          trivia: "Hytec Power Inc. developed a proprietary virtual reality training system that reduces training accidents by 95% while cutting training time by nearly half compared to traditional methods."
+        },
+        {
+          name: "Trinoma Mall",
+          image: "/day-4-images/Trinoma.png",
+          description:
+            "After a productive and insightful day, we headed to Trinoma Mall, a bustling shopping center that offered the perfect opportunity to relax and unwind. The mall was a vibrant mix of retail shops, dining options, and entertainment venues, offering something for everyone. We wandered through the mall, browsing stores and enjoying the variety of food stalls offering both local and international cuisine. It was the perfect way to cap off a day filled with learning and exploration. For many of us, the mall also became a chance to reflect on everything we had experienced that day—from the precision of currency production to the innovation in the energy sector. The mall was a reminder of the modern, consumer-driven side of the Philippines, a place where the country's progress and development are clearly visible.",
+          trivia: "Trinoma's name is derived from 'Triangle North of Manila,' referring to its location at the northern vertex of the Quezon City Central Business District triangle. The mall's rooftop garden is one of the largest green spaces in any Philippine shopping center."
+        },
+      ],
+    },
+    "day-five": {
+      title: "Day 5: Smart Mobility: Inside the Pulse of Urban Transport",
+      date: "Friday, April 11, 2025",
+      location: "Pasig City, Philippines",
+      itinerary: "Light Rail Transit Authority - Line 2, Traffic Engineering Center - MMDA",
+      content: `
+        <p>On Day 5, we delved into the complexities of urban mobility in Metro Manila, exploring the technologies that keep the city's transport system running smoothly. From automated trains to intelligent traffic management, we saw firsthand how technology is integrated into the daily operations of a bustling metropolis. This experience gave us an appreciation for the unseen forces that manage the flow of thousands of vehicles and commuters every day, making our cities more efficient and organized.</p>
+        
+      `,
+      reflection:
+        "The day was both informative and thought-provoking, showing us just how much technology is integrated into the city's infrastructure to ensure smooth transport and traffic management. The LRTA Line 2 demonstrated the power of automation and the benefits of public transit, while the MMDA Traffic Engineering Center revealed how smart traffic systems can alleviate the chaos that often defines Metro Manila's streets. It was humbling to realize how much planning and coordination goes into ensuring the efficient flow of people and vehicles across such a densely populated area. This visit opened our eyes to the unseen efforts that make urban living easier, and we left the day with a renewed appreciation for the people and technologies working tirelessly to keep Metro Manila functioning.",
+      trivia:
+        "The MMDA Traffic Engineering Center processes data from over 500 CCTV cameras and can detect traffic anomalies automatically using AI algorithms!",
+      image: "/day-five.png",
+      itineraryItems: [
+        {
+          name: "Light Rail Transit Authority - Line 2",
+          image: "/day-5-images/LRTA-Line2.png",
+          description:
+            "Our day began with a visit to the Light Rail Transit Authority (LRTA) for Line 2, where we got an inside look at how one of the busiest public transportation systems in Metro Manila operates. The LRTA staff guided us through the control center, where the heart of the rail system beats in perfect coordination. We were amazed to learn that a significant portion of the trains operating along Line 2 are unmanned, relying on sophisticated automation systems to ensure smooth operations. The system's efficiency in handling the massive flow of passengers was impressive, and it was eye-opening to realize how much technology is involved in running these trains seamlessly. The control room, which monitors everything from train speed to passenger capacity, was a high-tech marvel, demonstrating the meticulous planning that goes into every journey. We were able to see real-time data on train operations, which reinforced the complexity of managing such a vast network. Even in the heat of the midday sun, the experience of seeing how this vital part of the city's transport system operates was both fascinating and inspiring.",
+          trivia: "LRT Line 2 trains can operate completely automatically without drivers, though operators are still present for safety. The system can transport up to 30,000 passengers per hour in each direction during peak times."
+        },
+        {
+          name: "Traffic Engineering Center - MMDA",
+          image: "/day-5-images/MMDA.png",
+          description:
+            "Next, we visited the Metropolitan Manila Development Authority (MMDA) Traffic Engineering Center, where we witnessed the cutting-edge systems used to monitor and control traffic throughout the city. The building, which was relatively new, housed an array of advanced technologies designed to improve the flow of vehicles and reduce congestion. The center's main control room was filled with large screens displaying live footage of major roads, showing the real-time movement of cars, buses, and motorcycles across Metro Manila. We learned how the MMDA uses a combination of CCTV cameras, sensors, and traffic lights that adapt to the flow of traffic to manage the city's roadways. One of the most impressive aspects was the use of an offline CCTV system, which remains functional even when internet connectivity is disrupted. This redundancy ensures that traffic monitoring is never interrupted, no matter the circumstances. Although we were also reminded of the emotional toll this job can take, as employees occasionally witness traumatic road incidents, it was clear that the MMDA plays an essential role in maintaining order and safety on Metro Manila's chaotic streets. By the time we left, we had a profound respect for the men and women working behind the scenes to keep the city moving.",
+          trivia: "The MMDA's Traffic Engineering Center uses an AI system that can predict traffic congestion up to 30 minutes in advance with 85% accuracy, allowing operators to adjust traffic light timing before problems occur."
+        },
+      ],
+    },
+    "day-six": {
+      title: "Day 6: Dreams on the Hills: A Cold Embrace from the City of Pines",
+      date: "Saturday, April 12, 2025",
+      location: "Baguio City, Philippines",
+      itinerary:
+        "Strawberry Farm, Chinese Bell Church, Philippine Military Academy, Mines View Park, Wrightpark, Mansion House, Burhham Park",
+      content: `
+        <p>Baguio, the "City of Pines," welcomed us with its cool, crisp air and breathtaking mountain views. A mix of nature, history, and culture, Baguio offered a serene escape from the bustling lowlands. This day was filled with outdoor adventures, historical insights, and a deep connection to the natural beauty that defines the city. We visited farms, parks, and landmarks, each stop providing a glimpse into the heart and soul of this beloved destination.</p>
+        
+      `,
+      reflection:
+        "Baguio exceeded all my expectations. The city is a beautiful blend of nature, history, and culture, and each stop left me feeling more connected to its charm. The crisp mountain air, the friendly locals, and the peaceful scenery made the experience unforgettable. From the strawberry fields to the historical sites, Baguio is a place that captivates the heart and soul. I'll always treasure the memories I made here and hope to return one day.",
+      trivia:
+        "Baguio City was designed by American architect Daniel Burnham as a hill station and summer capital, modeled after Washington D.C. with its radial road layout!",
+      image: "/day-six.png",
+      itineraryItems: [
+        {
+          name: "Strawberry Farm",
+          image: "/day-6-images/Strawberry.png",
+          description:
+            "After a long, scenic drive from Quezon City, we were greeted by the cool breeze and the vibrant sights of the Strawberry Farm in La Trinidad, just outside Baguio. As soon as we stepped off the bus, the lush green fields and the red ripe strawberries glistening under the sun were a sight to behold. The farm was a peaceful haven, and we had the chance to walk through the rows of strawberry plants, picking fresh strawberries straight from the vine. The highlight was trying strawberry taho, a local variation of the popular Filipino snack, which was a refreshing treat on a cool morning. We also had the chance to purchase fresh strawberries, local jams, and even souvenirs to take home. The atmosphere was relaxed, and it felt like we were part of the simple joys of Baguio life. The experience reminded us of the importance of local farming and how deeply embedded agriculture is in the region's culture. As we strolled through the fields, surrounded by the backdrop of the mountains, we felt connected to the land that provides so much to the people of Baguio.",
+          trivia: "La Trinidad's Strawberry Farm produces over 1,500 metric tons of strawberries annually, with the peak season being from November to May when temperatures are coolest."
+        },
+        {
+          name: "Chinese Bell Church",
+          image: "/day-6-images/ChineseBell.png",
+          description:
+            "Our next stop, the Chinese Bell Church, offered a peaceful retreat where we could reflect and appreciate the fusion of cultures in Baguio. Nestled on a hill, the temple's intricate architecture immediately caught our attention. The steps leading up to the church were steep, but the climb was well worth it as we were rewarded with a panoramic view of the city below. The temple itself was a stunning blend of traditional Chinese design, with ornate decorations, colorful statues, and large bells that symbolized peace and prosperity. Inside, the tranquility of the surroundings made it a perfect place for contemplation. The air was cool, and the scent of incense wafted through the temple grounds, adding to the serene atmosphere. This stop allowed us to learn about the Chinese-Filipino community's contribution to Baguio's cultural richness and gave us a deeper understanding of the city's diversity.",
+          trivia: "The Chinese Bell Church was built in 1960 by Chinese immigrants and features a unique architectural blend of Buddhist, Taoist, and Christian elements, making it a symbol of religious harmony in the Philippines."
+        },
+        {
+          name: "Philippine Military Academy",
+          image: "/day-6-images/PMA.png",
+          description:
+            "The Philippine Military Academy (PMA) was an important part of our journey, offering us a glimpse into the rigorous training and discipline required to defend the country. Located in the heart of Baguio's picturesque hills, the PMA is known as the country's premier military training institution. We walked around the open grounds, marveling at the impressive buildings, the vintage helicopters, and the planes on display. The visit provided us with a profound sense of respect for the men and women who dedicate their lives to serving the nation. It was humbling to be in the same space where future leaders of the Armed Forces of the Philippines are molded. We were also given a brief history of the academy, which highlighted its role in shaping the nation's defense and security. For many of us, this was an eye-opening experience that not only increased our awareness of the military's importance but also sparked a sense of pride in the country's armed forces.",
+          trivia: "The PMA's famous 'Silent Drill' is performed without any verbal commands—cadets rely entirely on visual cues and precise timing, with the tradition dating back to 1953."
+        },
+        {
+          name: "Mines View Park",
+          image: "/day-6-images/MinesView.png",
+          description:
+            "Mines View Park offered one of the most stunning views of the surrounding mountain ranges, and it quickly became one of my favorite spots in Baguio. Standing at the viewpoint, I could see the lush valleys and the deep ravines, a reminder of the rich natural resources that have shaped the city's history. The park is famous for its scenic overlooks, and it provided the perfect spot for photos and contemplation. The atmosphere was lively with vendors selling local crafts, fresh strawberries, and even traditional Igorot attire for tourists to try on. Although I didn't get the chance to don the Igorot costume or take a photo with a horse, I still felt a deep appreciation for the place. The park's peaceful vibe was only enhanced by the cool mountain air, making it the perfect place to relax and take in the beauty of Baguio's natural landscape. Walking through the stalls, I picked up a few more souvenirs to bring home as reminders of the trip.",
+          trivia: "Mines View Park gets its name from its original purpose as an observation deck for American mining companies in the early 1900s. From this vantage point, engineers would survey the gold and copper mines that once dominated the local economy."
+        },
+        {
+          name: "Mansion House",
+          image: "/day-6-images/Mansion.png",
+          description:
+            "Though we didn't get to go inside the Mansion House, the iconic residence of the President of the Philippines when they visit Baguio, we were still in awe of the grandeur of its exterior. The mansion's beautiful gates and the surrounding manicured gardens were a postcard-perfect scene. Tourists gathered outside to take pictures, and we joined in, taking in the view of this majestic historical building. The Mansion House is deeply tied to Baguio's history, having served as a summer residence for the country's leaders during the Spanish and American colonial periods, and later as a presidential retreat. Standing in front of it, we felt a connection to the past and the many significant events that have taken place here over the years. Though we couldn't step inside, the experience of seeing the Mansion House in person was still meaningful, and it served as a reminder of the deep historical roots that run through Baguio.",
+          trivia: "The Mansion's ornate main gate is an exact replica of the gates at Buckingham Palace in London, gifted by the British government to the Philippines in the early 20th century."
+        },
+        {
+          name: "Burnham Park",
+          image: "/day-6-images/Burnham.png",
+          description:
+            "We ended the day at Burnham Park, a serene and lush green space in the heart of Baguio. The park is a popular destination for both locals and tourists, offering a range of activities from boating on the tranquil lake to strolling through the beautifully landscaped gardens. We walked around the park, breathing in the fresh air and soaking in the peaceful surroundings. There were street vendors selling local snacks, and the sight of families and friends enjoying a leisurely day made the park feel alive with joy. As the evening approached, the cool mountain air became even more refreshing, making it the perfect place to unwind. We also took the time to browse the nearby stalls for a few more souvenirs, enjoying the vibrant atmosphere of Baguio's public spaces. Burnham Park provided a beautiful conclusion to our day, with its relaxing ambiance offering the perfect way to wind down after a busy and fulfilling itinerary.",
+          trivia: "Burnham Park was designed by American architect Daniel Burnham in 1904 and originally featured a man-made lake that was dug entirely by hand. The park's iconic boat lagoon has remained largely unchanged for over a century."
+        },
+      ],
+    },
+    "day-seven": {
+      title: "Day 7: Free to Roam: Personal Discoveries in the City of Pines",
+      date: "Sunday, April 13, 2025",
+      location: "Baguio City, Philippines",
+      itinerary: "Free day to explore Baguio City",
+      content: `
+        <p>Our final day in Baguio was dedicated to pure spontaneity and personal exploration. With no strict schedule holding us back, we immersed ourselves in the everyday magic of the City of Pines, discovering hidden corners, indulging in local treats, and creating lasting memories through simple pleasures.</p>
+      
+      `,
+      reflection:
+        "Day 7 was a beautiful conclusion to our week-long journey. Stripped of rigid schedules, we rediscovered the simple pleasures of travel—wandering freely, connecting with locals, and embracing unplanned adventures. The market's vibrancy, the park's tranquility, and the night market's festive bustle reminded me that travel is as much about personal discovery as it is about sightseeing. As we prepared to say goodbye to Baguio, I felt a profound gratitude for the memories made and a deep desire to return.",
+      trivia:
+        "Baguio's public market is over 100 years old and features products from all the different indigenous groups of the Cordillera region!",
+      image: "/day-seven.png",
+      itineraryItems: [
+        {
+          name: "Baguio Market",
+          image: "/day-7-images/free1.png",
+          description:
+            "We made our first stop at the famous Baguio Market, a bustling bazaar where the scent of pine mingles with fresh produce and artisanal crafts. The market's vibrant stalls showcased everything from handwoven baskets and colorful textiles to jars of strawberry jam and bundles of fresh vegetables. I wandered through narrow aisles, haggling good-naturedly with vendors while selecting pasalubong—walis tambo, peanut brittle, and sweet preserves—that spoke of Baguio's agricultural bounty. The friendly shouts of stallholders and the lively hum of shoppers created an atmosphere rich with local flavor and community spirit.",
+          trivia: "Baguio Market's 'ukay-ukay' section (second-hand clothing) began in the 1980s when relief goods from abroad were sold by locals, eventually evolving into one of the Philippines' most famous thrift shopping destinations."
+        },
+        {
+          name: "Burnham Park",
+          image: "/day-7-images/free2.png",
+          description:
+            "Drawn back to the heart of the city, we revisited Burnham Park to soak in its serene ambience once more. Here, I strolled along tree-lined pathways, pausing to admire manicured flower beds and the gentle ripples on the park's iconic lagoon. Families and couples rowed boats under the shade of towering pine trees, while street performers added a cheerful soundtrack to the afternoon. I found a quiet bench and simply watched the world go by, appreciating how this green oasis seamlessly blends nature with urban life.",
+          trivia: "The rose garden in Burnham Park features over 300 varieties of roses, many of which were imported from Europe but have been adapted to thrive in Baguio's unique climate."
+        },
+        {
+          name: "Bikings",
+          image: "/day-7-images/free3.png",
+          description:
+            "Embracing the spirit of childhood, I rented a bike from the park's cycle rental stand. The lightweight cruiser glided effortlessly along the paved paths, and for a moment, I felt the carefree joy of exploring the park on two wheels. Neighbors smiled as we rode by, and laughter echoed through the air as children waved. The ride was a delightful dance between speed and tranquility—swift enough to feel exhilarating, yet gentle enough to savor every vista.",
+          trivia: "The bicycle rental tradition at Burnham Park dates back to the 1950s, and some of the rental shops are third-generation family businesses that have been operating for over 70 years."
+        },
+        {
+          name: "Night Market",
+          image: "/day-7-images/free4.png",
+          description:
+            "As dusk settled in, we ventured to the Night Market along Harrison Road, a lively stretch illuminated by colorful tarpaulins and twinkling lights. Stalls overflowed with bargain clothes, warm jackets, and handmade souvenirs, while the street was perfumed with the aromas of grilled corn, fried sweet potatoes, and isaw skewers. I navigated the bustling crowd, sampling local street foods—each bite a fusion of textures and flavors. The energy was electric as shoppers bargained for great deals and vendors called out enticing offers. It was a fitting grand finale, capturing Baguio's dynamic blend of culture and commerce.",
+          trivia: "Baguio's Night Market began as a temporary solution for displaced vendors after a typhoon in 2009, but became so popular with both locals and tourists that it was made permanent, now hosting over 1,000 vendors nightly."
+        },
+      ],
+    },
+  }
+
+  const post = blogPosts[day]
+
+  if (!post) {
+    return (
+      <div className="blog-post-not-found">
+        <h2>Blog post not found</h2>
+        <Link to="/main/blog">Back to Blog</Link>
+      </div>
+    )
+  }
+
+  const closeImage = () => {
+    setSelectedImage(null)
+  }
+
+  return (
+    <motion.div
+      className="blog-post"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Link to="/main/blog" className="back-to-blog">
+        <motion.div whileHover={{ x: -5 }} whileTap={{ scale: 0.95 }}>
+          <FaArrowLeft /> Back to Blog
+        </motion.div>
+      </Link>
+
+      <motion.div
+        className="blog-post-header"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <h2 className="blog-post-title highlight-title">{post.title}</h2>
+        <p className="blog-post-date">
+          <FaCalendarAlt className="blog-icon" /> {post.date}
+        </p>
+        <p className="blog-post-location">
+          <FaMapMarkerAlt className="blog-icon" /> {post.location}
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="blog-post-image"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        <img
+          src={post.image || "/placeholder.svg"}
+          alt={post.title}
+          onError={(e) => {
+            e.target.onerror = null
+            e.target.src = `/placeholder.svg?height=400&width=800`
+          }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="blog-post-itinerary"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        <h3>Itinerary:</h3>
+        <p>{post.itinerary}</p>
+      </motion.div>
+
+      {/* Content Section - Moved before trivia */}
+      <motion.div
+        className="blog-post-content"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        dangerouslySet\

@@ -1,0 +1,78 @@
+/* Experiences Section Styles */
+.experiences-section {
+    margin-bottom: 4rem;
+  }
+  
+  .experiences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .experience-card {
+    background-color: rgba(19, 7, 46, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .experience-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    align-self: center;
+  }
+  
+  .experience-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+  }
+  
+  .experience-description {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .experience-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  
+  .stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+  
+  @media (max-width: 576px) {
+    .experiences-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
