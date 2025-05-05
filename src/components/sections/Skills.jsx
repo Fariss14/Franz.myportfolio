@@ -76,14 +76,14 @@ const Skills = () => {
       issueDate: "February 2023",
       hours: "6 hours",
       pdfUrl:
-        "/certificates/LinkedIn/Microsoft-Security-Operations-Analyst-Associate-SC200-Cert-Prep-by-Microsoft-Press.pdf",
+        "/Microsoft-Security-Operations-Analyst-Associate-SC200-Cert-Prep-by-Microsoft-Press.pdf",
     },
     {
       name: "Certified Information Systems Security Professional (CISSP) 2024 Cert Prep",
       issueDate: "March 2023",
       hours: "8 hours",
       pdfUrl:
-        "/certificates/LinkedIn/Certified-Information-Systems-Security-Professional-CISSP-2024-Cert-Prep.pdf",
+        "/assets/certificates/LinkedIn/Certified-Information-Systems-Security-Professional-CISSP-2024-Cert-Prep.pdf",
     },
     {
       name: "Empathy in UX Design",
