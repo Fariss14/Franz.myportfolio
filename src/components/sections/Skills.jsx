@@ -391,27 +391,6 @@ const Skills = () => {
             </motion.li>
           ))}
         </ul>
-
-        <h3 className="certificates-heading">Certificates</h3>
-        <div className="certificate-buttons">
-          <motion.button
-            className="certificate-button linkedin-button"
-            onClick={openLinkedInCertificates}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaLinkedin className="button-icon" /> LinkedIn Certificates ({linkedInCertificates.length})
-          </motion.button>
-
-          <motion.button
-            className="certificate-button simplilearn-button"
-            onClick={openSimplilearnCertificates}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaGraduationCap className="button-icon" /> Simplilearn Certificates ({simplilearnCertificates.length})
-          </motion.button>
-        </div>
       </motion.div>
 
       {showModal && <CertificateModal source={modalSource} certificates={certificates} onClose={closeModal} />}
