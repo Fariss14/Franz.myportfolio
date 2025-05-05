@@ -1,5 +1,3 @@
-"use client"
-
 import { useCallback, useEffect, useState } from "react"
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
@@ -10,7 +8,7 @@ const ParticleBackground = ({ blurred = false }) => {
   const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    // Check if we're in a browser environment
+ 
     if (typeof window !== "undefined") {
       setIsLoaded(true)
     }
@@ -29,7 +27,7 @@ const ParticleBackground = ({ blurred = false }) => {
 
   if (!isLoaded || isError) {
     console.log("ParticleBackground not loaded or error occurred")
-    // Return a simple colored background as fallback
+ 
     return (
       <div
         style={{

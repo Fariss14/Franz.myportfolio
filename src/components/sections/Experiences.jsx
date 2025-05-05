@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { FaBook, FaBrain, FaFlask, FaRocket } from "react-icons/fa"
 

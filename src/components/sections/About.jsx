@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { FaGraduationCap, FaCode, FaLaptopCode, FaUserAlt, FaMapMarkerAlt } from "react-icons/fa"
 

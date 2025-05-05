@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { FaFacebook, FaLinkedin, FaInstagram, FaGithub, FaEnvelope } from "react-icons/fa"

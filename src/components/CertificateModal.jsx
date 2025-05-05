@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaTimes, FaFilePdf, FaSearch, FaChevronLeft, FaChevronRight } from "react-icons/fa"
