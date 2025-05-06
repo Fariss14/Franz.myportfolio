@@ -20,22 +20,13 @@ const Experiences = () => {
 
   const timelineExperiences = [
     {
-      year: "1st Year",
-      icon: <FaBook />,
-      title: "Foundations",
-      technologies: "C++, HTML, CSS",
+      year: "4th Year",
+      icon: <FaRocket />,
+      title: "Professional Skills",
+      technologies: "ReactJS, GitHub, Tailwind CSS, Capstone Project",
       description:
-        "Developed foundational programming skills with C++. Built basic static websites using HTML and CSS.",
-      color: "#4fffb0",
-    },
-    {
-      year: "2nd Year",
-      icon: <FaBrain />,
-      title: "Core Programming",
-      technologies: "Assembly, JavaScript, Python",
-      description:
-        "Learned low-level Assembly programming. Gained experience with JavaScript for interactivity and Python for scripting and logic building.",
-      color: "#8a4fff",
+        "Built modern user interfaces using ReactJS and styled them with Tailwind CSS. Used GitHub for version control and team collaboration. Capstone Project: Applied cumulative knowledge to design and develop a full-stack web application, integrating frontend, backend, and deployment best practices.",
+      color: "#ff9f4f",
     },
     {
       year: "3rd Year",
@@ -47,13 +38,22 @@ const Experiences = () => {
       color: "#ff4f8a",
     },
     {
-      year: "4th Year",
-      icon: <FaRocket />,
-      title: "Professional Skills",
-      technologies: "ReactJS, GitHub, Tailwind CSS, Capstone Project",
+      year: "2nd Year",
+      icon: <FaBrain />,
+      title: "Core Programming",
+      technologies: "Assembly, JavaScript, Python",
       description:
-        "Built modern user interfaces using ReactJS and styled them with Tailwind CSS. Used GitHub for version control and team collaboration. Capstone Project: Applied cumulative knowledge to design and develop a full-stack web application, integrating frontend, backend, and deployment best practices.",
-      color: "#ff9f4f",
+        "Learned low-level Assembly programming. Gained experience with JavaScript for interactivity and Python for scripting and logic building.",
+      color: "#8a4fff",
+    },
+    {
+      year: "1st Year",
+      icon: <FaBook />,
+      title: "Foundations",
+      technologies: "C++, HTML, CSS",
+      description:
+        "Developed foundational programming skills with C++. Built basic static websites using HTML and CSS.",
+      color: "#4fffb0",
     },
   ]
 
