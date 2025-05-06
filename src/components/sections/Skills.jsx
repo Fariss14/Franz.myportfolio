@@ -176,7 +176,7 @@ const Skills = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaLinkedin className="button-icon" /> LinkedIn Certificates ({linkedInCertificates.length})
+            <FaLinkedin className="button-icon" /> View LinkedIn Certificates ({linkedInCertificates.length})
           </motion.button>
 
           <motion.button
@@ -185,7 +185,7 @@ const Skills = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaGraduationCap className="button-icon" /> Simplilearn Certificates ({simplilearnCertificates.length})
+            <FaGraduationCap className="button-icon" /> View Simplilearn Certificates ({simplilearnCertificates.length})
           </motion.button>
         </div>
       </motion.div>
